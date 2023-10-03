@@ -35,7 +35,39 @@ const WeatherData = (props) => {
                     <p>{props.lang?'Max Temp: ' : 'jada dup: '}<span>{Math.round(props.weatherData.temp_max)}&deg;C</span></p>
                 </div>
             </div>
+            <div id="scrolledItem" className="forcastdata">
+                <div>
+                    <p>{props.lang?'SUNRISE' : 'sunUp'}</p>
+                    <img src="" width={100} alt="" />
+                    <p>{getTime(props.city.sunrise)}</p>
+                </div>
+                <div>
+                    <p>{props.lang?'HUMIDITY' : 'garami'}</p>
+                    <img src="" width={100} alt="" />
+                    <p>{props.weatherData.humidity}&nbsp;mm</p>
+                </div>
+                <div>
+                    <p>{props.lang?'WIND' : 'hawa'}</p>
+                    <img src="" width={100} alt="" />
+                    <p>{props.windData.speed}&nbsp;mph</p>
+                </div>
+                <div>
+                    <p>{props.lang?'PRESSURE' : 'DAVAv'}</p>
+                    <img src="" width={100} alt="" />
+                    <p>{props.weatherData.pressure}&nbsp;mb</p>
+                </div>
+                <div>
+                    <p>{props.lang?'SUNRISE' : 'sundown'}</p>
+                    <img src="" width={100} alt="" />
+                    <p>{getTime(props.city.sunset)}</p>
+                </div>
+            </div>
 
+            <p className="copyright">&copy;Shivam Jaiswal 2023</p>
+            <p onClick={sideRight} className="rightarrow">&gt;</p>
+            <p onClick={sideLeft} className="leftarrow">&lt;</p>
         </div>
     )
 }
+
+export default WeatherData

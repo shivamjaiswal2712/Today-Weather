@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState }from "react";
+import WeatherData from "./WeatherData";
 
 const Main = () => {
     const inputValue = useRef();
@@ -48,7 +49,8 @@ const Main = () => {
                     <img style={{cursor:'pointer'}} onClick={onSubmitHandler} src="" alt=""/>
                 </div>
             </div>
-            
+            <WeatherData WeatherData={myData} weather={dataWeather} city={cityDetails} lang={lang} windData={windData} />
+            <p onClick={() => setLang(!lang)} className="translater">{lang?('Hindi ?'): ('Eng ?')}</p>
         </div>
     )
 }
