@@ -1,71 +1,78 @@
-import React from "react";
+import React from 'react'
 
 const WeatherData = (props) => {
-    
+
     const getTime = (timeStamp) => {
         return `${new Date(timeStamp * 1000).getHours()} : ${new Date(
-            timeStamp *1000
+            timeStamp * 1000
         ).getMinutes()}`;
     };
 
-    const sideRight = () => {
+    const sideRight = () =>{
         var slider = document.getElementById('scrolledItem');
         slider.scrollLeft = slider.scrollLeft+300;
     }
-    const sideLeft = () => {
+    
+    const sideLeft = () =>{
         var slider = document.getElementById('scrolledItem');
         slider.scrollLeft = slider.scrollLeft-300;
     }
 
-    return(
-        <div className="weatherData">
-            <div className="currTemp">
-                <div className="tempAndLogo">
+    return (
+        <div className='weatherData'>
+            <div className='currtemp'>
+                <div className='tempAndLogo'>
                     <div>
-                        <img src="" width={200} alt=""/>
+                        <img src={`assets/${props.weather.icon}.svg`} width={200} alt='icon'/>
                     </div>
                     <div>
-                        {Math.round(props.WeatherData.temp)}&deg;C
+                        {Math.round(props.weatherData.temp)}&deg;C
                         <p>{props.weather.description}</p>
                     </div>
                 </div>
-                <div className="windData">
-                    <p>{props.lang?'wind: ' : 'hawa: '}<span>{props.windData.speed}&nbsp;mph</span></p>
+
+                <div className='windData'>
+                    <p>{props.lang?'Wind: ':'हवा: '}<span>{props.windData.speed}&nbsp;mph</span></p>
                     <p>{props.lang?'Min Temp: ':'न्यूनतम ताप: '}<span>{Math.round(props.weatherData.temp_min)}&deg;C</span></p>
                     <p>{props.lang?'Max Temp: ':'अधिकतम ताप: '}<span>{Math.round(props.weatherData.temp_max)}&deg;C</span></p>
                 </div>
             </div>
-            <div id="scrolledItem" className="forcastdata">
+            
+            <div id='scrolledItem' className='forcastdata'>
                 <div>
-                    <p>{props.lang?'SUNRISE' : 'sunUp'}</p>
-                    <img src="" width={100} alt="" />
+                    <p>{props.lang?'SUNRISE':'सूर्योदय'}</p>
+                    <img src={'https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/sunrise.svg'} width={100} alt='icon'/>
                     <p>{getTime(props.city.sunrise)}</p>
                 </div>
+
                 <div>
-                    <p>{props.lang?'HUMIDITY' : 'garami'}</p>
-                    <img src="" width={100} alt="" />
+                    <p>{props.lang?'HUMIDITY':'नमी'}</p>
+                    <img src={'https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/humidity.svg'} width={100} alt='icon'/>
                     <p>{props.weatherData.humidity}&nbsp;mm</p>
                 </div>
+                
                 <div>
-                    <p>{props.lang?'WIND' : 'hawa'}</p>
-                    <img src="" width={100} alt="" />
+                    <p>{props.lang?'WIND':'हवा'}</p>
+                    <img src={'https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/wind.svg'} width={100} alt='icon'/>
                     <p>{props.windData.speed}&nbsp;mph</p>
                 </div>
+                
                 <div>
-                    <p>{props.lang?'PRESSURE' : 'DAVAv'}</p>
-                    <img src="" width={100} alt="" />
+                    <p>{props.lang?'PRESURE':'दबाव'}</p>
+                    <img src={'https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/pressure-low.svg'} width={100} alt='icon'/>
                     <p>{props.weatherData.pressure}&nbsp;mb</p>
                 </div>
+
                 <div>
-                    <p>{props.lang?'SUNRISE' : 'sundown'}</p>
-                    <img src="" width={100} alt="" />
+                    <p>{props.lang?'SUNSET':'सूर्यास्त'}</p>
+                    <img src={'https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/sunset.svg'} width={100} alt='icon'/>
                     <p>{getTime(props.city.sunset)}</p>
                 </div>
             </div>
-
-            <p className="copyright">&copy;Shivam Jaiswal 2023</p>
-            <p onClick={sideRight} className="rightarrow">&gt;</p>
-            <p onClick={sideLeft} className="leftarrow">&lt;</p>
+            
+            <p className='copyright'>&copy;Shivam Jaiswal 2023</p>
+            <p onClick={sideRight} className='rigtharrow'>&gt;</p>
+            <p onClick={sideLeft} className='leftarrow'>&lt;</p>
         </div>
     )
 }
