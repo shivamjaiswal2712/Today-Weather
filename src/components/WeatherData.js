@@ -31,8 +31,8 @@ const WeatherData = (props) => {
                 </div>
                 <div className="windData">
                     <p>{props.lang?'wind: ' : 'hawa: '}<span>{props.windData.speed}&nbsp;mph</span></p>
-                    <p>{props.lang?'Min Temp: ' : 'kam dup: '}<span>{Math.round(props.weatherData.temp_min)}&deg;C</span></p>
-                    <p>{props.lang?'Max Temp: ' : 'jada dup: '}<span>{Math.round(props.weatherData.temp_max)}&deg;C</span></p>
+                    <p>{props.lang?'Min Temp: ':'न्यूनतम ताप: '}<span>{Math.round(props.weatherData.temp_min)}&deg;C</span></p>
+                    <p>{props.lang?'Max Temp: ':'अधिकतम ताप: '}<span>{Math.round(props.weatherData.temp_max)}&deg;C</span></p>
                 </div>
             </div>
             <div id="scrolledItem" className="forcastdata">

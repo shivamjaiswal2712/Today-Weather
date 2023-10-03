@@ -10,7 +10,7 @@ const Main = () => {
     const [cityDetails, setCityDetails] = useState([]);
     const [dataWeather, setDataWeather] = useState([]);
     const [windData, setWindData] = useState([]);
-    const APP_KEY = ''
+    const APP_KEY = "35acd0e7fc9e307eee4ba460";
 
     useEffect(() => {
         (async _=> {
