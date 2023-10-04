@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-// import searchIcon from './search.svg'
+import searchIcon from './search.svg';
 import WeatherData from './WeatherData';
-// import linkIcon from './external-link.svg'
+import linkIcon from './external-link.svg';
 
 const Main = () => {
     const inputValue = useRef();
@@ -12,7 +12,7 @@ const Main = () => {
     const [cityDetails,setCityDetails] = useState([])
     const [dataWeather,setDataWeather] = useState([])
     const [windData,setWindData] = useState([]);
-    const APP_KEY= "35acd0e7fc9e307eee4ba460";
+    const APP_KEY="c7f4a3917af32c421f0a54";
 
     useEffect(() =>{
         (async _ => {
@@ -46,10 +46,10 @@ const Main = () => {
         <div className='box'>
             <div className='cityName'>
                 {error?(<p>{cityDetails.name}, {cityDetails.country}<a  href={`https://en.wikipedia.org/wiki/${cityDetails.name}`} target="_ ">
-                    <img src="" alt='link'/></a></p>):(<p className='invalid'>{lang?'Invalid City Name':'अमान्य शहर का नाम'}</p>)}
+                    <img src={linkIcon} alt='link'/></a></p>):(<p className='invalid'>{lang?'Invalid City Name':'अमान्य शहर का नाम'}</p>)}
                 <div className='search'>
                     <input type='text' ref={inputValue} onKeyDown={onkeydownHandler} placeholder='City Name'/>
-                    <img style={{cursor:'pointer'}} onClick={onSubmitHandler} src="" alt='searchIcon'/>
+                    <img style={{cursor:'pointer'}} onClick={onSubmitHandler} src={searchIcon} alt='searchIcon'/>
                 </div>
             </div>
         
