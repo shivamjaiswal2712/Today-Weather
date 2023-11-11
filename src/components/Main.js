@@ -12,11 +12,14 @@ const Main = () => {
     const [cityDetails,setCityDetails] = useState([])
     const [dataWeather,setDataWeather] = useState([])
     const [windData,setWindData] = useState([]);
-    const APP_KEY="c7f4a3917af32c421f0a54";
+    // const APP_KEY="c7f4a3917af32c421f0a54";
+    // const APP_KEY="s35acd0e7fc9e307eee4ba460";
+    // const APP_KEY="xqdGO85qv4Q_IPoL0cWoEpwMHFU7RYW4TgANgiuqIe8";
 
     useEffect(() =>{
         (async _ => {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=${APP_KEY}&units=metric&lang=${lang?('en'):('hi')}`);
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID={process.env.REACT_APP_WEATHER_APP_KEY}&units=metric&lang=${lang?('en'):('hi')}`);
+            // const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID={APP_KEY}&units=metric&lang=${lang?('en'):('hi')}`);
             const data = await response.json();
             if(response.ok){
                 setCityDetails(data.city)
